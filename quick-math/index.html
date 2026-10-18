@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Math</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Quick Math</h1>
+      <div class="actions">
+        <button id="muteBtn" class="btn small" aria-pressed="false">Sound: On</button>
+        <button id="restartBtn" class="btn small">Restart</button>
+      </div>
+    </header>
+
+    <section class="hud" aria-label="Game status">
+      <div class="stat"><span class="label">Score</span><strong id="score">0</strong></div>
+      <div class="stat"><span class="label">Best</span><strong id="best">0</strong></div>
+      <div class="stat"><span class="label">Level</span><strong id="level">1</strong></div>
+      <div class="stat"><span class="label">Lives</span><strong id="lives" class="lives">♥♥♥</strong></div>
+    </section>
+
+    <section class="meta">
+      <span>Streak <strong id="streak">×1</strong></span>
+      <span>Level progress <strong id="progress">0/5</strong></span>
+    </section>
+
+    <div class="timer" aria-hidden="true"><div id="timerBar" class="timer-fill"></div></div>
+    <p id="feedback" class="feedback" aria-live="polite"></p>
+
+    <div class="card">
+      <div id="question" class="question">?</div>
+
+      <div id="choices" class="choices">
+        <button class="choice" data-index="0"></button>
+        <button class="choice" data-index="1"></button>
+        <button class="choice" data-index="2"></button>
+        <button class="choice" data-index="3"></button>
+      </div>
+
+      <section id="startOverlay" class="overlay">
+        <h2>Quick Math</h2>
+        <ol class="rules">
+          <li>A sum appears. Pick the right answer from four choices.</li>
+          <li>Answer before the timer bar runs out.</li>
+          <li>Build a streak of correct answers for a bigger multiplier, up to x3.</li>
+          <li>Every 5 questions is a new level with bigger numbers and less time.</li>
+          <li>Wrong answers and timeouts cost a life. You have three.</li>
+        </ol>
+        <button id="startBtn" class="btn primary">Start</button>
+      </section>
+
+      <section id="overOverlay" class="overlay" hidden>
+        <h2>Game over</h2>
+        <p>Score: <strong id="finalScore">0</strong></p>
+        <p>Level reached: <strong id="finalLevel">1</strong></p>
+        <p>Best: <strong id="finalBest">0</strong></p>
+        <button id="againBtn" class="btn primary">Play again</button>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

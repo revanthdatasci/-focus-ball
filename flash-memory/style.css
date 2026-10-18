@@ -1,0 +1,89 @@
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #eef;
+  background: radial-gradient(circle at 30% 20%, #2b1a5e, #0d0b1f 70%);
+}
+
+.game {
+  position: relative;
+  width: min(94vw, 480px);
+  padding: 16px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+
+.hud { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+.stat { flex: 1; text-align: center; background: rgba(255,255,255,0.08); border-radius: 12px; padding: 6px 4px; }
+.stat span { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+.stat strong { font-size: 1.1rem; }
+.stat strong.pop { animation: pop 0.3s; }
+
+.message { text-align: center; height: 1.6em; margin-bottom: 10px; font-weight: 600; color: #ffd86b; }
+
+.board {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.tile {
+  border: none;
+  border-radius: 14px;
+  background: #2f2a63;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.tile:active { transform: scale(0.94); }
+.tile.flash   { background: #ffd86b; box-shadow: 0 0 24px #ffd86b; transform: scale(1.05); }
+.tile.correct { background: #3ddc97; box-shadow: 0 0 18px #3ddc97; animation: pop 0.3s; }
+.tile.wrong   { background: #ff4d6d; animation: shake 0.35s; }
+.tile.locked  { pointer-events: none; }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  background: rgba(13, 11, 31, 0.94);
+  animation: fade 0.4s;
+  z-index: 5;
+}
+.overlay.hidden, .hidden { display: none; }
+.overlay h1 { font-size: 2.4rem; }
+.overlay h1 span { color: #ffd86b; }
+.overlay ul { text-align: left; font-size: 0.9rem; opacity: 0.85; padding-left: 18px; }
+.overlay .big { font-size: 3rem; font-weight: 800; color: #ffd86b; }
+.overlay small { opacity: 0.7; }
+
+button#startBtn, button#restartBtn {
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  color: #1a1238;
+  background: linear-gradient(135deg, #ffd86b, #ff9f5a);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+button#startBtn:hover, button#restartBtn:hover { transform: scale(1.06); }
+
+@keyframes pop   { 50% { transform: scale(1.18); } }
+@keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+@keyframes fade  { from { opacity: 0; } }
