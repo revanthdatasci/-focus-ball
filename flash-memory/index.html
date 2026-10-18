@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flash Memory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <header class="hud">
+      <div class="stat"><span>Level</span><strong id="level">1</strong></div>
+      <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+      <div class="stat"><span>Best</span><strong id="best">0</strong></div>
+      <div class="stat"><span>Lives</span><strong id="lives">❤❤❤</strong></div>
+    </header>
+
+    <p id="message" class="message">Get ready…</p>
+    <div id="board" class="board"></div>
+
+    <!-- Start screen -->
+    <section id="startScreen" class="overlay">
+      <h1>Flash<span>Memory</span></h1>
+      <p>Some tiles will light up for a split second.<br>
+         Remember them, then tap them all!</p>
+      <ul>
+        <li>Each level lights up more tiles, for less time.</li>
+        <li>A wrong tap costs a life. You have 3.</li>
+        <li>Fast, correct taps earn bonus points.</li>
+      </ul>
+      <button id="startBtn">Start Game</button>
+      <small>Sound: <label><input type="checkbox" id="soundToggle" checked> on</label></small>
+    </section>
+
+    <!-- Game over screen -->
+    <section id="overScreen" class="overlay hidden">
+      <h2>Game Over</h2>
+      <p>You reached level <strong id="finalLevel">1</strong></p>
+      <p class="big" id="finalScore">0</p>
+      <p id="newBest" class="hidden">🏆 New best score!</p>
+      <button id="restartBtn">Play Again</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

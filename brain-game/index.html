@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flash Memory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Flash Memory</h1>
+      <div class="actions">
+        <button id="muteBtn" class="btn small" aria-pressed="false">Sound: On</button>
+        <button id="restartBtn" class="btn small">Restart</button>
+      </div>
+    </header>
+
+    <section class="hud" aria-label="Game status">
+      <div class="stat"><span class="label">Score</span><strong id="score">0</strong></div>
+      <div class="stat"><span class="label">Best</span><strong id="best">0</strong></div>
+      <div class="stat"><span class="label">Level</span><strong id="level">1</strong></div>
+      <div class="stat"><span class="label">Lives</span><strong id="lives" class="lives">♥♥♥</strong></div>
+    </section>
+
+    <div class="timer" aria-hidden="true"><div id="timerBar" class="timer-fill"></div></div>
+    <p id="feedback" class="feedback" aria-live="polite"></p>
+
+    <div class="board-wrap">
+      <div id="board" class="board"></div>
+
+      <section id="startOverlay" class="overlay">
+        <h2>Flash Memory</h2>
+        <ol class="rules">
+          <li>A few tiles light up for a moment.</li>
+          <li>Remember them, then tap the same tiles before time runs out.</li>
+          <li>Each correct tile scores points. A wrong tile or a timeout costs a life.</li>
+          <li>Each level adds more tiles, a bigger grid, and less time to memorize.</li>
+        </ol>
+        <button id="startBtn" class="btn primary">Start</button>
+      </section>
+
+      <section id="overOverlay" class="overlay" hidden>
+        <h2>Game over</h2>
+        <p>Score: <strong id="finalScore">0</strong></p>
+        <p>Level reached: <strong id="finalLevel">1</strong></p>
+        <p>Best: <strong id="finalBest">0</strong></p>
+        <button id="againBtn" class="btn primary">Play again</button>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
